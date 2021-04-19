@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Detector</title>
+    <link rel="stylesheet" href="assets/css/results.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <nav>
+        <div class="headernew  ">
+            <a href='index.html'>Home</a>
+            <a href="uploadpage.html">Upload</a>
+            <a href="results.html">Result</a>
+            <a href="info.html">About</a>
+        </div>
+    </nav>
+    <main >
+        <div class="contain mb-10" style="padding: 2rem;">
+            <h1 style="font-size: 3rem;">Results</h1>
+        </div>
+        <div class="contain" style="margin: 2rem auto;">
+            <img src="assets/images/upload_chest.jpg" width="350px" alt="Image">
+
+        </div>
+        <div class="row mt-n4">
+            <big class="col-sm-12 text-center" style="color: firebrick;">
+                Input Image
+            </big>
+        </div>
+
+        <div class="contain">
+            <div class="card">
+                <div class="card-title text-center p-3 " style="margin-bottom: 0;">
+
+                    <p >Prediction</p>
+                </div>
+                <div class="card-body col-sm-12 text-center pt-4">
+                   {{ resnet_chest_pred }}
+                   <!-- {{ gender }}
+                   {{ age }}
+                   {{ location }}
+                   {{ presentCheck }}
+                   {{ pastCheck }} -->
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+
+    </main>
+</body>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+</html>

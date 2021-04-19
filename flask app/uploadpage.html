@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Detector</title>
+    <link rel="stylesheet" href="assets/css/uploadpage.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+</head>
+<body>
+    <nav>
+        <div class="headernew  text-dark">
+            <a href='index.html'>Home</a>
+            <a href="uploadpage.html">Upload</a>
+            <a href="results.html">Result</a>
+            <a href="info.html">About</a>
+        </div>
+    </nav>
+    <main>
+        <div class="contain">
+            <h1>Upload Image</h1>
+        </div>
+        <div class="contain">
+            <div class="card">
+                <div class="card-title text-center p-3  text-white" style="background-color: rgb(150, 67, 67);">Chest X-Ray</div>
+                <div class= "card-body">
+                    <div class="text-center">
+                        <h5 class="title">
+                            Enter details
+                        </h5>
+                        <form action = "/uploaded_chest" method = "post" enctype="multipart/form-data">  
+                        
+                            <div class="form-group row text-center mt-5">
+                                <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+                                <div class="col-sm-10"> 
+                                    <select name="gender" class="form-control" id ="gender">
+                                        <option value="M" selected>Male</option>
+                                        <option value="F">Female</option>
+                                    </select>
+                                </div> 
+                                
+                            </div>
+                            <div class="form-group row mt-5 mb-5">
+
+                                <label for="age" class="col-sm-2 col-form-label text-center pt-1">Age</label>
+                                <div class="col-sm-4 text-center"> 
+
+                                    <input type="number" name="age" id="age">
+                                </div> 
+                                <label for="location" class="col-sm-2  col-form-label text-center pt-1">Location</label>
+                                <div class="col-sm-4 text-center"> 
+
+                                    <input name="location" id="location">
+                                </div>
+                            </div>
+<!-- 
+                            <div class="form-group row">
+
+                                <label for="location" class="col-sm-2  col-form-label">Location:</label>
+                                <div class="col-sm-6 text-left"> 
+
+                                    <input name="location" id="location">
+                                </div>
+                            </div> -->
+
+                            <div class="form-group form-check row">
+                                <h5 class="col-sm-12 mb-4 ">Past medical history</h5>
+                                <input type="checkbox" name="pastCheck" class="form-check-inpu col-sm-1" id="pastCheck1" value="pastCheck1">
+                                <label class="form-check-label col-form-label col-sm-4 text-center" for="pastCheck1">Hypertension</label>
+                                <input type="checkbox" name="pastCheck" class="form-check-inpu col-sm-1" id="pastCheck2" value="pastCheck2">
+                                <label class="form-check-label col-form-label col-sm-4 text-center" for="pastCheck2">Type 2 Diabetes</label>
+                                <input type="checkbox" name="pastCheck" class="form-check-inpu col-sm-2" id="pastCheck3" value="pastCheck3">
+                                <label class="form-check-label col-form-label col-sm-3 text-center" for="pastCheck3">Lung Cancer</label>
+                                <input type="checkbox" name="pastCheck" class="form-check-inpu col-sm-2" id="pastCheck4" value="pastCheck4">
+                                <label class="form-check-label col-form-label col-sm-4 text-center" for="pastCheck4">Coronary Heart diseases</label>
+                            </div>
+                            <div class="form-group form-check row"> 
+                                <h5 class="col-sm-12 mb-4 mt-10">Current Symptoms</h5>
+                                <input type="checkbox"  name="presentCheck" class="form-check-inpu col-sm-1" id="presentCheck1" value="presentCheck1">
+                                <label class="form-check-label col-form-label col-sm-4 text-center" for="presentCheck1">High grade Fever</label>
+                                <input type="checkbox" name="presentCheck"  class="form-check-inpu col-sm-1" id="presentCheck2" value="presentCheck2">
+                                <label class="form-check-label col-form-label col-sm-4 text-center" for="presentCheck2">Fatigue</label>
+                                <input type="checkbox"  name="presentCheck" class="form-check-inpu col-sm-2" id="presentCheck3" value="presentCheck3">
+                                <label class="form-check-label col-form-label col-sm-3 text-center" for="presentCheck3">Cough</label>
+                                <input type="checkbox"  name="presentCheck" class="form-check-inpu col-sm-2" id="presentCheck3" value="presentCheck4">
+                                <label class="form-check-label col-form-label col-sm-4 text-center" for="presentCheck3">Dyspnea (Shortness of breath)</label>
+                                <input type="checkbox"  name="presentCheck" class="form-check-inpu col-sm-1" id="presentCheck3" value="presentCheck5">
+                                <label class="form-check-label col-form-label col-sm-4 text-center" for="presentCheck3">Asthenia (Body weakness)</label>
+                                <input type="checkbox"  name="presentCheck" class="form-check-inpu col-sm-1" id="presentCheck3" value="presentCheck6">
+                                <label class="form-check-label col-form-label col-sm-4 text-center" for="presentCheck3">Chest Pain</label>
+                                <input type="checkbox"  name="presentCheck" class="form-check-inpu col-sm-2" id="presentCheck3" value="presentCheck7">
+                                <label class="form-check-label col-form-label col-sm-2 text-left" for="presentCheck3">Diarrhoea</label>
+                            </div>
+
+                            <div class="form-group row text-center">
+
+                                <input type="file" name="file" id="file-upload_1" class="col-md-4 offset-md-3 offset-sm-1 text-center" onchange="showname()"/>  
+                                <input type = "submit" value="Upload Image" class="btn btn-primary col-sm-3">
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script type="text/javascript">
+        
+    function nameit () {
+  var name_1 = document.getElementById('file-upload_1'); 
+  document.getElementById('label_1').innerHTML = name_1.files.item(0).name; 
+};
+
+</script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+</html>

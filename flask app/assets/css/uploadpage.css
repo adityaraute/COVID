@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.headernew
+{
+    display: flex; 
+    justify-content: space-evenly;
+    flex-direction: row;
+    background:linear-gradient(45deg, #72012311 0%, #ff48007a 30% , #72012354 100%);
+     /* #720122; */
+    height: 20rem;
+    box-shadow: inset 0px -1px 10px  firebrick;
+}
+.headernew a{
+    margin-top: 15rem;
+    color: rgb(175, 8, 8);
+    font-size: 2.5rem;
+}
+.headernew a:hover{
+    color: rgb(175, 8, 8);
+}
+main{
+    background: linear-gradient(127deg, whitesmoke 25%, #4e1600 25%, whitesmoke 26%, whitesmoke 72% , #4e1600 73%, whitesmoke 73%);
+}
+.contain{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+
+}
+.card{
+
+    /* padding:3rem; */
+    border: 3px solid brown;
+    width: 50rem;
+    min-height: 15rem;
+}
+
+.card-title{
+    /* background-color: rgb(223, 98, 98); */
+    padding: 0.7rem;
+    font-size: 2rem;
+    font-weight: 350;
+}
+.bt{
+    background-color: chartreuse;
+    color: rgb(20, 50, 0);
+    padding: 0.75rem 0.5rem;
+    border: 1px solid lightgreen;
+    border-radius: 5px;
+}
