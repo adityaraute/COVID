@@ -54,3 +54,14 @@ footer{
     letter-spacing: 3px;
     font-weight: 150;
 }
+
+#question-div{
+    background: linear-gradient( #72012350,rgb(238, 238, 238, 1));
+    margin: 20px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+#question-div .question{
+    margin: 1rem auto;
+}
