@@ -43,6 +43,10 @@ def about():
 def faqs():
    return render_template('faqs.html')
 
+@app.route('/info.html')
+def info():
+   return render_template('info.html')
+
 @app.route('/prevention.html')
 def prevention():
    return render_template('prevention.html')
