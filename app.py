@@ -2,6 +2,7 @@
 
 from flask import Flask, render_template, request, session, redirect, url_for, flash
 import os
+import joblib
 from werkzeug.utils import secure_filename
 from tensorflow.keras.models import load_model
 # import matplotlib.pyplot as plt
@@ -87,13 +88,13 @@ def uploaded_chest():
             # filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'upload_chest.jpg'))
 
-   resnet_chest = load_model('models/resnet_chest.h5')
+   # resnet_chest = load_model('models/resnet_chest.h5')
    # vgg_chest = load_model('models/vgg_chest.h5')
    # inception_chest = load_model('models/inceptionv3_chest.h5')
    # xception_chest = load_model('models/xception_chest.h5')
    xception = load_model('models/Xception.h5')
-   lr = load_model('models/Logistic_Regression.h5')
-   rfc = load_model('models/Random_Forest_Classifier.h5')
+   rfc = joblib.load('models/Random_Forest_Classifier.pkl')
+   lr = joblib.load('models/Logistic_Regression.pkl')
 
    image = cv2.imread('./flask app/assets/images/upload_chest.jpg') # read file 
    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # arrange format as per keras
@@ -107,16 +108,16 @@ def uploaded_chest():
    params_list = ['Female','Male','Cough','Fever','Fatigue','asthenia','diarrhoea','chest pain','breathing difficulties','hypertension','diabetes','heart disease','lung disease']
 
    print("Predictions:")
-   if probability[0] > 0.5:
-      resnet_chest_pred = str('%.2f' % (probability[0]*100) + '% COVID')
+   # if probability[0] > 0.5:
+   #    resnet_chest_pred = str('%.2f' % (probability[0]*100) + '% COVID')
 
-   else:
-      resnet_chest_pred = str('%.2f' % ((1-probability[0])*100) + '% NonCOVID')
+   # else:
+   #    resnet_chest_pred = str('%.2f' % ((1-probability[0])*100) + '% NonCOVID')
 
-   print(resnet_chest_pred)
-   age= request.form['age']
+   # print(resnet_chest_pred)
+   # age= request.form['age']
    gender = request.form['gender']
-   location = request.form['location']
+   # location = request.form['location']
    pastCheck = request.form.getlist('pastCheck')
    presentCheck = request.form.getlist('presentCheck')
 
@@ -142,16 +143,16 @@ def uploaded_chest():
          symptom_list.append(0)
 
    xception_pred = xception.predict(image)
-   probability_1 = xception_pred[0] #todo
-   print(xception_pred)
+   probability_1 = xception_pred[0][0] #todo
+   print("------------------------------------------------------------", xception_pred)
 
-   rfc_pred = rfc.predict(symptom_list)
+   rfc_pred = rfc.predict([symptom_list])
    probability_2 = rfc_pred[0] #todo
-   print(rfc_pred)
+   print("===================================================", rfc_pred)
 
    probability_list = [probability_1, probability_2]
 
-   lr_pred = lr.predict(probability_list)
+   lr_pred = lr.predict([probability_list])
    final_probability = lr_pred[0]
    print(lr_pred)
 
