@@ -218,7 +218,6 @@ def uploaded_ct():
    else:
       resnet_ct_pred = str('%.2f' % ((1-probability[0])*100) + '% NonCOVID')
    print(resnet_ct_pred)
-
    vgg_pred = vgg_ct.predict(image)
    probability = vgg_pred[0]
    print("VGG Predictions:")
