@@ -40,12 +40,12 @@
                     <p >Prediction</p>
                 </div>
                 <div class="card-body col-sm-12 text-center pt-4">
-                   {{ final }}
-                   <!-- {{ gender }}
-                   {{ age }}
-                   {{ location }}
-                   {{ presentCheck }}
-                   {{ pastCheck }} -->
+                {% if final %} 
+                    The patient is found to be <b>COVID-19 positive</b>
+                {% else %}
+                    The patient is found to be <b>COVID-19 negative</b>
+                {% endif %}
+                   
                 </div>
 
             </div>
